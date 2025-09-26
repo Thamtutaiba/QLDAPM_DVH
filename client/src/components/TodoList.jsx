@@ -15,6 +15,7 @@ export default function TodoList({ items, onToggle, onDelete, onRename }) {
 function TodoRow({ todo, onToggle, onDelete, onRename }) {
   const [editing, setEditing] = useState(false);
   const [value, setValue] = useState(todo.title);
+  const isOverdue = !todo.status && todo.dueAt && new Date(todo.dueAt) < new Date();
 
   function save() {
     const v = value.trim();
@@ -24,7 +25,7 @@ function TodoRow({ todo, onToggle, onDelete, onRename }) {
   }
 
   return (
-    <li className="flex items-center gap-3 p-3 hover:bg-slate-50 transition">
+    <li className={`flex items-center gap-3 p-3 hover:bg-slate-50 transition ${isOverdue ? 'bg-rose-50' : ''}`}>
       <input
         type="checkbox"
         checked={todo.status}
@@ -41,13 +42,20 @@ function TodoRow({ todo, onToggle, onDelete, onRename }) {
           autoFocus
         />
       ) : (
-        <span className={`flex-1 ${todo.status ? 'line-through text-slate-400' : 'text-slate-800'}`}>
+        <span className={`flex-1 ${todo.status ? 'line-through text-slate-400' : (isOverdue ? 'text-rose-700' : 'text-slate-800')}`}>
           {todo.title}
         </span>
       )}
 
-      <div className="text-sm text-slate-500 hidden sm:block w-24 text-right">
-        {todo.dueAt ? new Date(todo.dueAt).toLocaleDateString() : '—'}
+      <div className="text-sm text-slate-500 hidden sm:block w-40 text-right">
+        {todo.dueAt ? (
+          <div className="inline-flex items-center gap-2 justify-end w-full">
+            <span>{new Date(todo.dueAt).toLocaleDateString()}</span>
+            {isOverdue && (
+              <span className="px-2 py-[2px] rounded-full bg-rose-600 text-white text-[10px] font-semibold uppercase">Overdue</span>
+            )}
+          </div>
+        ) : '—'}
       </div>
 
       <div className="flex items-center gap-2">
