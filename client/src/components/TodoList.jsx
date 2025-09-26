@@ -15,7 +15,14 @@ export default function TodoList({ items, onToggle, onDelete, onRename }) {
 function TodoRow({ todo, onToggle, onDelete, onRename }) {
   const [editing, setEditing] = useState(false);
   const [value, setValue] = useState(todo.title);
-  const isOverdue = !todo.status && todo.dueAt && new Date(todo.dueAt) < new Date();
+  const isOverdue = (() => {
+    if (todo.status) return false;
+    if (!todo.dueAt) return false;
+    const due = new Date(todo.dueAt);
+    const now = new Date();
+    const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    return due < startOfToday; // chỉ quá hạn nếu trước hôm nay, cùng ngày không tính
+  })();
 
   function save() {
     const v = value.trim();

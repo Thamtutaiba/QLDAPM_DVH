@@ -97,20 +97,25 @@ router.delete('/:id', async (req, res, next) => {
 router.get('/stats/basic', async (_req, res, next) => {
   try {
     const now = new Date();
+    const startOfToday = new Date(now);
+    startOfToday.setHours(0, 0, 0, 0);
+    const endOfSeventhDay = new Date(startOfToday);
+    endOfSeventhDay.setDate(endOfSeventhDay.getDate() + 7);
+    endOfSeventhDay.setHours(23, 59, 59, 999);
 
     const [total, completed, dueSoon, overdue] = await Promise.all([
       // Tất cả
       Todo.countDocuments({}),
       // Đã hoàn thành
       Todo.countDocuments({ status: true }),
-      // Sắp đến hạn trong 7 ngày tới (không phân biệt đã xong hay chưa)
+      // Sắp đến hạn trong 7 ngày tới (từ hôm nay đến hết ngày thứ 7)
       Todo.countDocuments({
-        dueAt: { $gte: now, $lte: new Date(Date.now() + 7 * 24 * 3600 * 1000) },
+        dueAt: { $gte: startOfToday, $lte: endOfSeventhDay },
       }),
-      // QUÁ HẠN = chưa hoàn thành và dueAt < hiện tại
+      // QUÁ HẠN = chưa hoàn thành và dueAt < đầu ngày hôm nay
       Todo.countDocuments({
         status: false,
-        dueAt: { $lt: now },
+        dueAt: { $lt: startOfToday },
       }),
     ]);
 
