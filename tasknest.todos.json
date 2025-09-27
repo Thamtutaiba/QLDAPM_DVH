@@ -1,0 +1,187 @@
+[{
+  "_id": {
+    "$oid": "68d6996c41890694c87fb112"
+  },
+  "title": "Lau cửa sổ",
+  "status": true,
+  "dueAt": {
+    "$date": "2025-09-28T00:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-09-26T13:47:24.807Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-26T14:01:40.752Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d69d1c41890694c87fb22e"
+  },
+  "title": "Học bài",
+  "status": true,
+  "dueAt": {
+    "$date": "2025-09-26T00:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-09-26T14:03:08.341Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-26T15:54:45.887Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d69d3441890694c87fb246"
+  },
+  "title": "Đi Chơi",
+  "status": true,
+  "dueAt": {
+    "$date": "2025-09-30T00:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-09-26T14:03:32.649Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-26T16:04:50.138Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d6b742e3bbba84c1e6479a"
+  },
+  "title": "Nghe nhạc",
+  "status": true,
+  "dueAt": {
+    "$date": "2025-09-26T00:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-09-26T15:54:42.544Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-26T17:33:11.616Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d6b754e3bbba84c1e647a1"
+  },
+  "title": "ĐI chợ mua đồ ăn",
+  "status": true,
+  "dueAt": {
+    "$date": "2025-09-26T00:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-09-26T15:55:00.377Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-26T17:33:12.346Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d6c087080003b2b83c242d"
+  },
+  "title": "sss",
+  "status": false,
+  "dueAt": {
+    "$date": "2025-09-24T00:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-09-26T16:34:15.382Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-26T16:34:15.382Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d6c4a5080003b2b83c2449"
+  },
+  "title": "Mua đồ chơi",
+  "status": false,
+  "dueAt": {
+    "$date": "2025-10-26T00:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-09-26T16:51:49.123Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-26T16:51:49.123Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d6c4b7080003b2b83c244d"
+  },
+  "title": "đi du lịch",
+  "status": false,
+  "dueAt": {
+    "$date": "2025-09-30T00:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-09-26T16:52:07.470Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-26T16:52:07.470Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d6ce63ec7b6fa4135c9c7f"
+  },
+  "title": "Di nghe nhạc",
+  "status": false,
+  "dueAt": {
+    "$date": "2025-09-30T00:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-09-26T17:33:23.191Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-26T17:33:23.191Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d6ce78ec7b6fa4135c9c87"
+  },
+  "title": "Tập thể dục",
+  "status": false,
+  "dueAt": {
+    "$date": "2025-10-06T00:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-09-26T17:33:44.875Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-26T17:33:44.875Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68d6ce7fec7b6fa4135c9c8b"
+  },
+  "title": "Chơi cầu lông",
+  "status": false,
+  "dueAt": {
+    "$date": "2025-09-28T00:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-09-26T17:33:51.220Z"
+  },
+  "updatedAt": {
+    "$date": "2025-09-26T17:33:51.220Z"
+  },
+  "__v": 0
+}]
