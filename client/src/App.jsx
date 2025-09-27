@@ -81,54 +81,63 @@ export default function App() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-4">TaskNest</h1>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+      <div className="max-w-4xl mx-auto p-6">
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
+            TaskNest
+          </h1>
+          <p className="text-slate-600">Quản lý công việc hiệu quả và thông minh</p>
+        </div>
 
       <Stats className="mb-4" />
 
-      <div className="grid gap-3">
-        <TodoForm onCreate={addTodo} />
-        <Filters
-          status={status} onStatus={setStatus}
-          from={from} onFrom={setFrom}
-          to={to} onTo={setTo}
-          onApply={() => setPage(1)}
-        />
-      </div>
-
-      {error && (
-        <div className="mt-3 p-3 bg-red-100 text-red-700 rounded">
-          {error}
+        <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20 mb-6">
+          <div className="grid gap-4">
+            <TodoForm onCreate={addTodo} />
+            <Filters
+              status={status} onStatus={setStatus}
+              from={from} onFrom={setFrom}
+              to={to} onTo={setTo}
+              onApply={() => setPage(1)}
+            />
+          </div>
         </div>
-      )}
 
-      <div className="mt-4">
-        <TodoList
-          items={items}
-          onToggle={toggleTodo}
-          onDelete={deleteTodo}
-          onRename={updateTitle}
-        />
-      </div>
+        {error && (
+          <div className="mb-4 p-4 bg-red-50 border border-red-200 text-red-700 rounded-xl">
+            {error}
+          </div>
+        )}
 
-      <div className="flex items-center justify-between mt-4">
-        <button
-          className="px-3 py-2 rounded bg-slate-200 disabled:opacity-50"
-          disabled={page <= 1}
-          onClick={() => setPage((p) => Math.max(1, p - 1))}
-        >
-          Prev
-        </button>
-        <span className="text-sm text-slate-600">
-          Page {page} / {pages}
-        </span>
-        <button
-          className="px-3 py-2 rounded bg-slate-200 disabled:opacity-50"
-          disabled={page >= pages}
-          onClick={() => setPage((p) => Math.min(pages, p + 1))}
-        >
-          Next
-        </button>
+        <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20 mb-6">
+          <TodoList
+            items={items}
+            onToggle={toggleTodo}
+            onDelete={deleteTodo}
+            onRename={updateTitle}
+          />
+        </div>
+
+        <div className="flex items-center justify-between bg-white/50 backdrop-blur-sm rounded-xl p-4 shadow-md border border-white/20">
+          <button
+            className="px-4 py-2 rounded-lg bg-gradient-to-r from-slate-100 to-slate-200 hover:from-slate-200 hover:to-slate-300 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-sm"
+            disabled={page <= 1}
+            onClick={() => setPage((p) => Math.max(1, p - 1))}
+          >
+            ← Prev
+          </button>
+          <span className="text-sm font-medium text-slate-600 bg-white/50 px-4 py-2 rounded-lg">
+            Trang {page} / {pages}
+          </span>
+          <button
+            className="px-4 py-2 rounded-lg bg-gradient-to-r from-slate-100 to-slate-200 hover:from-slate-200 hover:to-slate-300 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-sm"
+            disabled={page >= pages}
+            onClick={() => setPage((p) => Math.min(pages, p + 1))}
+          >
+            Next →
+          </button>
+        </div>
       </div>
     </div>
   );
