@@ -9,7 +9,7 @@ import Stats from './components/Stats.jsx';
 export default function App() {
   const [items, setItems] = useState([]);
   const [page, setPage] = useState(1);
-  const [limit] = useState(5);
+  const [limit] = useState(6);
   const [pages, setPages] = useState(1);
   const [status, setStatus] = useState('all');
   const [from, setFrom] = useState('');
@@ -42,9 +42,9 @@ export default function App() {
 
   useEffect(() => { load(); }, [query]);
 
-  async function addTodo(title, dueAt) {
+  async function addTodo(title, dueAt, priority) {
     try {
-      await api.post('/todos', { title, dueAt: dueAt || undefined });
+      await api.post('/todos', { title, dueAt: dueAt || undefined, priority: priority || 'medium' });
       setPage(1); // về trang đầu để thấy item mới
       await load();
     } catch (e) {

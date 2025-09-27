@@ -7,11 +7,11 @@ const router = express.Router();
 // Create
 router.post('/', async (req, res, next) => {
   try {
-    const { title, dueAt } = req.body;
+    const { title, dueAt, priority } = req.body;
     if (!title || !title.trim()) {
       return res.status(400).json({ message: 'title is required' });
     }
-    const todo = await Todo.create({ title: title.trim(), dueAt });
+    const todo = await Todo.create({ title: title.trim(), dueAt, priority: priority || 'medium' });
     return res.status(201).json(todo);
   } catch (err) {
     next(err);
@@ -61,7 +61,7 @@ router.get('/', async (req, res, next) => {
 router.patch('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { title, status, dueAt } = req.body;
+    const { title, status, dueAt, priority } = req.body;
     const update = {};
 
     if (title !== undefined) {
@@ -72,6 +72,7 @@ router.patch('/:id', async (req, res, next) => {
     }
     if (status !== undefined) update.status = !!status;
     if (dueAt !== undefined) update.dueAt = dueAt;
+    if (priority !== undefined) update.priority = priority;
 
     const todo = await Todo.findByIdAndUpdate(id, update, { new: true });
     if (!todo) return res.status(404).json({ message: 'not found' });
